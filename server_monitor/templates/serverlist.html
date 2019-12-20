@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>simsun</title>
+</head>
+<body>
+{#<table border="2">#}
+{#   {% for server in serverlist %}#}
+{#    <tr>#}
+{#        <td>{{ server.server_id}}</td>#}
+{#        <td>{{ server.server_name}}</td>#}
+{#        <td>{{ server.server_hostname}}</td>#}
+{#        <td>{{ server.server_internal_ip}}</td>#}
+{#        <td>{{ server.server_os}}</td>#}
+{#        <td>{{ server.server_memory}}</td>#}
+{#        <td>{{ server.server_cpu}}</td>#}
+{#        <td>{{ server.server_disk_capacity}}</td>#}
+{#        <td>{{ server.server_lx}}</td>#}
+{#        <td>{{ server.server_purpose}}</td>#}
+{#        <td>{{ server.server_version}}</td>#}
+{#        <td>{{ server.server_create_date}}</td>#}
+{#    </tr>#}
+{#    {% endfor %}#}
+{#</table>#}
+<header>
+    {% url 'server_list' as the_url %}
+    <a href="{{ the_url }}">Home</a>
+</header>
+<ul>
+<li>{{ request.user }}</li>
+<li>{{ request.path }}</li>
+</ul>
+
+
+<table border="1">
+   {% for col in cols %}
+    <th>
+        {{ col }}
+    </th>
+    {% endfor %}
+    {% for server in serverlist %}
+        <tr>
+        {% for sv in server %}
+            <td>{{sv}}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
