@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<h1>{{ request.session.user_name }}!  欢迎回来！</h1>
+<p>
+    <a href="/logout/">登出</a>
+</p>
+
+<table border="1">
+   {% for col in cols %}
+    <th>
+        {{ col }}
+    </th>
+    {% endfor %}
+    {% for server in serverlist %}
+        <tr>
+        {% for sv in server %}
+            <td>{{sv}}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

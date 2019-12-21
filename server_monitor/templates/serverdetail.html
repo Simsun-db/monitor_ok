@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>detail</title>
+</head>
+<body>
+<header>
+   {% url 'server_list' as the_url %}
+    <a href="{{ the_url }}">Home</a>
+
+   {% url 'server_detail' a as detail_url %}
+    <a href="{{ detail_url }}"> Detail </a>
+</header>
+<ul>
+<li>{{ request.user }}</li>
+<li>{{ request.path }}</li>
+<li>'--------------------------------'</li>
+</ul>
+
+
+
+<section>
+ <table border="1">
+   {% for col in cols %}
+    <th>
+        {{ col }}
+    </th>
+    {% endfor %}
+    {% for server in serverlist %}
+        <tr>
+        {% for sv in server %}
+            <td>{{sv}}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+</section>
+
+</body>
+</html>
